@@ -1,0 +1,62 @@
+[
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000011.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000011.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000012.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000012.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000013.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000013.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000014.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000014.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000015.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000015.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000016.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000016.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000017.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000017.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000018.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000018.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000019.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000019.png",
+        "device_id": "033422071163"
+    },
+    {
+        "timestamp": "2025-01-21T15:38:31Z",
+        "rgb_path": "data/033422071163/rgb/image_20250121T153831Z_000020.png",
+        "depth_path": "data/033422071163/depth/depth_20250121T153831Z_000020.png",
+        "device_id": "033422071163"
+    }
+]

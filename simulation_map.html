@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8c16a1143be3c781c739bed423652f7e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<script>
+// 将模拟数据点存入全局变量
+window.simulationPoints = {"2023-01": [{"lat": 26.474177017552126, "lon": -81.44690809730388, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.470139644774626, "lon": -81.43424679713227, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.457362365275568, "lon": -81.43814994125168, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.470355090188374, "lon": -81.449164915196, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.458627827123703, "lon": -81.44155191714339, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.46591459703185, "lon": -81.43727525570944, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.469687491660697, "lon": -81.43922846128365, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.467763613813222, "lon": -81.45324725266514, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.473626431149523, "lon": -81.4470706663735, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.461401057288874, "lon": -81.44749495734177, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.458042411216823, "lon": -81.45081343442071, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.46282936145792, "lon": -81.4417634303075, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.463655453518662, "lon": -81.4378475748143, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.47069359888305, "lon": -81.45102942945942, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}, {"lat": 26.456080801628012, "lon": -81.44957766991051, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-01"}], "2023-02": [{"lat": 26.468122972677932, "lon": -81.44078654290767, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.474230985741055, "lon": -81.44778322911819, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.4565041743729, "lon": -81.45155578181372, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.47436905659164, "lon": -81.44941789406613, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.45637045546101, "lon": -81.44675000720201, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.455145136047644, "lon": -81.44343603443482, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.46614584679889, "lon": -81.44989675175869, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.462425715800368, "lon": -81.44294179326619, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.455372503879044, "lon": -81.43546835882104, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}, {"lat": 26.454902231464516, "lon": -81.43466153382636, "popup": "\u91c7\u96c6\u65f6\u95f4: 2023-02"}]};
+// 创建全局图层组，用于存放模拟点
+window.simLayer = L.layerGroup().addTo(map);
+
+// 根据所选日期更新图层
+function updateSimulationPoints(selectedDate) {
+    window.simLayer.clearLayers();
+    var points = window.simulationPoints[selectedDate];
+    if (points) {
+        points.forEach(function(pt) {
+            var marker = L.circleMarker([pt.lat, pt.lon], {
+                color: 'blue',
+                fillColor: 'blue',
+                fillOpacity: 0.7,
+                radius: 6
+            });
+            marker.bindPopup(pt.popup);
+            // 为 marker 添加右键删除功能
+            marker.on('contextmenu', function(e) {
+                window.simLayer.removeLayer(marker);
+            });
+            marker.addTo(window.simLayer);
+        });
+    }
+}
+// 初始化显示 2023-01 的数据
+updateSimulationPoints("2023-01");
+</script>
+    
+<div id="custom-toolbar" style="position: fixed; top: 10px; right: 10px; z-index: 9999;
+    background: white; padding: 10px; border: 2px solid gray;">
+    <label for="date-select">选择日期 (年月):</label>
+    <select id="date-select">
+      <option value="2023-01">2023-01</option>
+      <option value="2023-02">2023-02</option>
+    </select>
+</div>
+<script>
+document.getElementById('date-select').addEventListener('change', function(e) {
+    var selected = e.target.value;
+    console.log("Selected month: " + selected);
+    updateSimulationPoints(selected);
+});
+</script>
+    
+<script>
+var drawControl = new L.Control.Draw({
+    draw: {
+        polygon: true,
+        circle: true,
+        polyline: false,
+        rectangle: false,
+        marker: false
+    },
+    edit: {
+        featureGroup: window.simLayer,
+        remove: true
+    }
+});
+map.addControl(drawControl);
+
+// 当用户绘制图形完成后，添加右键删除事件
+map.on('draw:created', function (e) {
+    var layer = e.layer;
+    layer.on('contextmenu', function(event) {
+        map.removeLayer(layer);
+    });
+    layer.addTo(map);
+});
+</script>
+    
+            <div class="folium-map" id="map_8c16a1143be3c781c739bed423652f7e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_8c16a1143be3c781c739bed423652f7e = L.map(
+                "map_8c16a1143be3c781c739bed423652f7e",
+                {
+                    center: [26.464396, -81.443663],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_45556719ebde060e1c1fe2d8f480d372 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 21, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_45556719ebde060e1c1fe2d8f480d372.addTo(map_8c16a1143be3c781c739bed423652f7e);
+        
+    
+            var tile_layer_5fcb02b246ef530ef2c20ac8c27c8d1b = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community", "detectRetina": false, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_5fcb02b246ef530ef2c20ac8c27c8d1b.addTo(map_8c16a1143be3c781c739bed423652f7e);
+        
+    
+            var tile_layer_8d488ba3905ccf3c27fa14509dc6a4a3 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {"attribution": "Google", "detectRetina": false, "maxZoom": 21, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_8d488ba3905ccf3c27fa14509dc6a4a3.addTo(map_8c16a1143be3c781c739bed423652f7e);
+        
+    
+            var layer_control_10499a17e1a5637ea84dc011303c2b5e_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_45556719ebde060e1c1fe2d8f480d372,
+                    "esriworldimagery" : tile_layer_5fcb02b246ef530ef2c20ac8c27c8d1b,
+                    "Google Satellite" : tile_layer_8d488ba3905ccf3c27fa14509dc6a4a3,
+                },
+                overlays :  {
+                },
+            };
+            let layer_control_10499a17e1a5637ea84dc011303c2b5e = L.control.layers(
+                layer_control_10499a17e1a5637ea84dc011303c2b5e_layers.base_layers,
+                layer_control_10499a17e1a5637ea84dc011303c2b5e_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_8c16a1143be3c781c739bed423652f7e);
+
+        
+</script>
+</html>
