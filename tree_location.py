@@ -226,10 +226,6 @@ def find_identity(activetrack):
 
 def find_tree_coordinate(finished_tree):
     cooridinate_list = []
-
-
-
-
     for tracks in finished_tree:
         filename = tracks[1]
         target_y = tracks[0]
@@ -257,19 +253,9 @@ def find_tree_coordinate(finished_tree):
 
 
 
-
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
 
-    image_dir = "014/left/filtered_data_L14-55"
+    image_dir = "Left_roll1st/flipped_filtered_55"
     out_dir   = "detected_trunks"
     os.makedirs(out_dir, exist_ok=True)
 

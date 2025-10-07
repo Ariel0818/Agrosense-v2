@@ -1,0 +1,7 @@
+train: dataset2/train/images
+val: dataset2/valid/images
+test: dataset2/test/images
+
+nc: 1
+names: ['trunk']
+

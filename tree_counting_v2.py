@@ -40,7 +40,7 @@ def yolo_detection(image_path: str, weights: str = "train3/weights/best.pt",
     return str(label_path)
 
 
-def filter_label_file(label_path: str, threshold_norm: float = 0.3, area_threshold: float = 0.005):
+def filter_label_file(label_path: str, threshold_norm: float = 0.3, area_threshold: float = 0.004):
     """
     作用是去掉不相关的bounding box
     读取并过滤一个 YOLO label 文件（每行：
@@ -142,6 +142,7 @@ def activetracking(p, y_centers, ratios, activetrack, y_gap):
     txt  = yolo_detection(p)
     line = filter_label_file(txt)
     filtered_line = ratio_select_filter(p, line, ratio_threds = 0.2)
+    print("filtered_line", filtered_line)
 
     # ===== 之前的filter还不够彻底，在这里再重新联系前后帧再筛选一遍 ============
     # 只有一个bbx，直接保存
@@ -212,13 +213,13 @@ def activetracking(p, y_centers, ratios, activetrack, y_gap):
 
 
 
-def find_identity(activetrack):
+def find_identity(activetrack):   # 如果atravtive list 足够长（包含空的（考虑没有检测到的情况））， 开始计算非黑ratio，如果符合规律也提取中心帧
     valid_track = [x for x in activetrack if x[0] and isinstance(x[0], list)] # 去掉list里面ycenter是空的项
 
     if not valid_track:
         return None # 没有有效的轨迹帧
 
-    if len(valid_track)>= 5:
+    if len(valid_track)>= 5:    
         middle = min(valid_track, key=lambda x: abs(x[0][0] - 0.5))  # 这里选择保存的树只用了y central， 没有使用nonblack ratio
         print("最靠近中心的帧是：", middle)
         return middle
@@ -231,7 +232,9 @@ def find_identity(activetrack):
 
 if __name__ == '__main__':
 
-    image_dir = "014/left/filtered_data_L14-55"
+    # image_dir = "014/right/flipped_filtered_data_R14-55"
+    image_dir = "/Volumes/LaCie/Agrosense2/data_2025_7_22/data/250122075706/20250714_2046/flipped_filtered55"
+    # image_dir = "/Volumes/LaCie/Agrosense2/009/left/filtered_data_L009-55"
     out_dir   = "detected_trunks"
     os.makedirs(out_dir, exist_ok=True)
 
@@ -242,7 +245,7 @@ if __name__ == '__main__':
 
     # 2. 预计算 y_centers 和 ratios。ycenter因该是从大到小的，因为树是从图片的下方移动到上方
 
-    y_gap = 0.2 
+    y_gap = 0.3 # 越大表示可以容忍的没检测到树干的间隙越大
     y_centers = []
     ratios = []
     save_result = []
@@ -262,8 +265,6 @@ if __name__ == '__main__':
 
 
 
-
-
 # 处理最后一棵树
     if activetrack != 0:
         print("the last one")
@@ -273,6 +274,8 @@ if __name__ == '__main__':
         identity_file = find_identity(finished_tree)
         print("identity frame is:", identity_file)
         save_result.append(identity_file)
+
+    print(save_result)
 
 
 
